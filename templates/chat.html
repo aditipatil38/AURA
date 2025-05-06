@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AURA Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #e5ddd5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-header {
+            background-color: #FF7F50;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            max-width: 80%;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #fbc4ac;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: #f1f0f0;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        button {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FF7F50;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">AURA - Your Therapy Assistant</div>
+        <div class="chat-messages" id="chat-box"></div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type a message" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        let userId = localStorage.getItem("user_id");
+        if (!userId) {
+            userId = "user_" + Math.floor(Math.random() * 100000);
+            localStorage.setItem("user_id", userId);
+        }
+
+        const chatBox = document.getElementById("chat-box");
+
+        function appendMessage(message, sender) {
+            const msgDiv = document.createElement("div");
+            msgDiv.className = "message " + (sender === "user" ? "user-message" : "bot-message");
+            msgDiv.textContent = message;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById("message-input");
+            const message = inputField.value.trim();
+            if (!message) return;
+
+            appendMessage(message, "user");
+            inputField.value = "";
+
+            const res = await fetch("/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    message: message,
+                    user_id: userId
+                })
+            });
+
+            const data = await res.json();
+            appendMessage(data.reply, "bot");
+        }
+
+        window.onload = async () => {
+            try {
+                const res = await fetch(`/history?user_id=${userId}`);
+                const history = await res.json();
+
+                if (Array.isArray(history)) {
+                    history.forEach(msg => {
+                        appendMessage(msg.message, msg.sender);
+                    });
+                }
+            } catch (err) {
+                console.error("Error loading history", err);
+            }
+        };
+
+        document.getElementById("message-input").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
