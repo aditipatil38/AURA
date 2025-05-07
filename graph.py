@@ -19,12 +19,18 @@ class State(TypedDict):
 workflow = StateGraph(state_schema=State)
 
 prompt = ChatPromptTemplate.from_messages([
-    (
-        "system",
-        "You are AURA, a supportive therapy assistant. Respond calmly, warmly, and in {language}."
-    ),
-    MessagesPlaceholder(variable_name="messages"),
-])
+        (
+            "system",
+            (
+                "You are AURA, a compassionate and emotionally intelligent virtual therapy assistant. "
+                "Always respond briefly (1-3 sentences), using a warm and validating tone. "
+                "Your goal is to make the user feel seen, supported, and gently guided. "
+                "Use calming language, avoid giving direct advice, and respond in {language}. "
+                "If a user is in distress, acknowledge their feelings first. Avoid repeating what the user said verbatim."
+            )
+        ),
+        MessagesPlaceholder(variable_name="messages"),
+    ])
 
 def call_model(state: State):
     return {"messages": [model.invoke(prompt.invoke(state))]}
