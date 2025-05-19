@@ -43,21 +43,21 @@
 <table>
   <tr>
     <td align="center">
-      <img src="img/4.png" alt="Blank Screen" height="450"><br>
+      <img src="img/4.png" alt="Blank Screen" ><br>
       <strong>Blank Chat Screen</strong>
     </td>
     <td align="center">
-      <img src="img/3.png" alt="Message History" height="450"><br>
+      <img src="img/3.png" alt="Message History" ><br>
       <strong>Message History</strong>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="img/2.png" alt="Chat Demo" height="450"><br>
+      <img src="img/2.png" alt="Chat Demo" ><br>
       <strong>Conversation</strong>
     </td>
     <td align="center">
-      <img src="img/1.png" alt="Chat Demo 1" height="450"><br>
+      <img src="img/1.png" alt="Chat Demo 1" ><br>
       <strong>Conversation</strong>
     </td>
   </tr>
