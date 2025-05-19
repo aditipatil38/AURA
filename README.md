@@ -7,6 +7,9 @@
 ***
 
 ## Tech Stack
+
+<img align ="right" src="https://go-skill-icons.vercel.app/api/icons?i=python,flask,langchain,groq,huggingface,firebase,javascript"/>
+
 - **Frontend**: HTML + JavaScript (chat UI)
 - **Backend**: Flask, LangGraph, LangChain
 - **LLM**: Groq API (LLaMA3-8B)
