@@ -57,11 +57,11 @@
   <tr>
     <td align="center">
       <img src="img/2.png" alt="Chat Demo" ><br>
-      <strong>Chat Window UI</strong>
+      <strong>Chat Window UI (1)</strong>
     </td>
     <td align="center">
       <img src="img/1.png" alt="Chat Demo 1" ><br>
-      <strong>Chat Window UI</strong>
+      <strong>Chat Window UI (2)</strong>
     </td>
   </tr>
 </table>
