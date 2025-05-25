@@ -1,6 +1,6 @@
 ***
 
-<h1 align="center">AURA – Virtual Therapy Assistant</h1>
+<h1 align="center"> AURA – Virtual Therapy Assistant </h1>
 
 <p align = "center"> AURA is a compassionate and emotionally intelligent virtual therapy assistant. <br> It responds to users in a warm, validating tone, with multilingual support and mental health grounding techniques.<br> Built with Flask, LangGraph, LangChain RAG, Firebase, and Groq’s LLaMA3. </p>
 
