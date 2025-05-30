@@ -1,12 +1,15 @@
 ***
 
-<h1 align="center">AURA – Virtual Therapy Assistant</h1>
+<h1 align="center"> AURA – Virtual Therapy Assistant </h1>
 
 <p align = "center"> AURA is a compassionate and emotionally intelligent virtual therapy assistant. <br> It responds to users in a warm, validating tone, with multilingual support and mental health grounding techniques.<br> Built with Flask, LangGraph, LangChain RAG, Firebase, and Groq’s LLaMA3. </p>
 
 ***
 
 ## Tech Stack
+
+<img align ="right" src="https://go-skill-icons.vercel.app/api/icons?i=python,flask,langchain,groq,huggingface,firebase,javascript"/>
+
 - **Frontend**: HTML + JavaScript (chat UI)
 - **Backend**: Flask, LangGraph, LangChain
 - **LLM**: Groq API (LLaMA3-8B)
@@ -43,22 +46,22 @@
 <table>
   <tr>
     <td align="center">
-      <img src="img/4.png" alt="Blank Screen" height="450"><br>
+      <img src="img/4.png" alt="Blank Screen" ><br>
       <strong>Blank Chat Screen</strong>
     </td>
     <td align="center">
-      <img src="img/3.png" alt="Message History" height="450"><br>
+      <img src="img/3.png" alt="Message History" ><br>
       <strong>Message History</strong>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="img/2.png" alt="Chat Demo" height="450"><br>
-      <strong>Conversation</strong>
+      <img src="img/2.png" alt="Chat Demo" ><br>
+      <strong>Chat Window UI (1)</strong>
     </td>
     <td align="center">
-      <img src="img/1.png" alt="Chat Demo 1" height="450"><br>
-      <strong>Conversation</strong>
+      <img src="img/1.png" alt="Chat Demo 1" ><br>
+      <strong>Chat Window UI (2)</strong>
     </td>
   </tr>
 </table>
