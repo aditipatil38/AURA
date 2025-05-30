@@ -9,7 +9,7 @@ def load_docs():
     notes_path = os.path.join(BASE_DIR, "data", "therapy_notes.txt")
     print(f"Loading therapy notes from: {notes_path}")
 
-    loader = TextLoader(notes_path, encoding="utf-8")  # <-- fix here
+    loader = TextLoader(notes_path, encoding="utf-8")
     raw_docs = loader.load()
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     return splitter.split_documents(raw_docs)
